@@ -1,13 +1,7 @@
 public class Author {
-    private String name;
-
-    Author(String name){
-        this.name=name;
-    }
-
-    public void print()
+    public String name;
+    Author(String n)
     {
-        System.out.println("Author: "+this.name);
+        name=n;
     }
-
 }

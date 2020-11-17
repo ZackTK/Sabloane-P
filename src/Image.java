@@ -1,10 +1,8 @@
 import java.util.concurrent.TimeUnit;
-
 public class Image implements Element {
-    private String name;
-    
+    public String imageName;
     Image(String name) {
-        this.name=name;
+        imageName = name;
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
@@ -12,7 +10,16 @@ public class Image implements Element {
         }
     }
 
-    public void  print() {
-        System.out.println("Image with name: " + this.name);
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void print()
+    {
+        System.out.println("Image with name: "+imageName);
+    }
+
+    public void accept(Visitor visitor){
+        visitor.visit(this);
     }
 }

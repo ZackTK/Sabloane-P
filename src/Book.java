@@ -1,46 +1,29 @@
 import java.util.ArrayList;
-import java.util.Vector;
 
-public class Book {
-    private String title;
-
-    private ArrayList<Author> authors = new ArrayList<>();
-    private Vector<Element> elements = new Vector<Element>();
-
-    Book(String title) {
-        this.title = title;
+class Book {
+    public String title;
+    public Author author;
+    public ArrayList<Element> content=new ArrayList<>();
+    Book(String t)
+    {
+        title=t;
+    }
+    public void addAuthor(Author a)
+    {
+        author=a;
     }
 
-    public void addContent(Element element) {
-        elements.add(element);
+    public void addContent(Element elm)
+    {
+        content.add(elm);
     }
-
-    public Vector<Element> getElements() {
-        return elements;
-    }
-
-    public void setElements(Vector<Element> elements) {
-        this.elements = elements;
-    }
-
-    public void addAuthor(Author author){
-        authors.add(author);
-    }
-
-    public void print(){
-        System.out.println("Book name: " + this.title);
-        printAuthors();
-        for(Element i:elements) {
-            i.print();
-        }
-    }
-
-    private void printAuthors(){
-        for(Author i: authors)
-        {
-            i.print();
-        }
+    public void print() {
+        System.out.println("Book:"+title);
+        System.out.println("Author:"+author.name);
+        for(Element e: content
+        ) {e.print();}
     }
 
 
 }
+

@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class ImageProxy implements Element{
 
     String url;
@@ -17,7 +19,17 @@ public class ImageProxy implements Element{
 
     public void print() {
         Image img=loadImage();
+
         img.print();
         
     }
+    public void accept(Visitor visitor){
+        visitor.visit(this);
+    }
+
+
+    public String getRealImage() {
+        return url;
+    }
+
 }

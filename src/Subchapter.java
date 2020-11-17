@@ -1,59 +1,36 @@
 import java.util.ArrayList;
 
-public class SubChapter  {
-    private String name;
-    
-    private ArrayList<Paragraph> paragraphs = new ArrayList<>();
-    private ArrayList<Table> tables = new ArrayList<>();
-    private ArrayList<Image> images = new ArrayList<>();
-
-    
-    SubChapter(String name){
-        this.name=name;
+public class SubChapter{
+    public String name;
+    ArrayList<Paragraph> pharagraphs=new ArrayList<>();
+    ArrayList<Image> images=new ArrayList<>();
+    ArrayList<Table> tables=new ArrayList<>();
+    SubChapter(String n) {
+        name=n;
     }
 
-    public void createNewParagraph(String name){
-        paragraphs.add(new Paragraph(name));
-    }
-    public void createNewImage(String name){
-        images.add(new Image(name));
-    }
-    public void createNewTable(String name){
-        tables.add(new Table(name));
+    public void createNewParagraph(String s) {
+        Paragraph paragraph = new Paragraph(s);
+        pharagraphs.add(paragraph);
     }
 
-    public void print(){
-        System.out.println("Subchapter: " + this.name);
-        printImages();
-        printParagraphs();
-        printTables();
+    public void createNewImage(String s) {
+        Image image=new Image(s);
+        images.add(image);
     }
 
-    private void printParagraphs(){
-        for(Paragraph i : this.paragraphs)
-        {
-            i.print();
-        }
-    }
-    private void printTables(){
-        for(Table i : this.tables)
-        {
-           i.print();
-        }
-    }
-    private void printImages(){
-        for(Image i: images)
-        {
-            i.print();
-        }
+    public void createNewTable(String s) {
+        Table table=new Table(s);
+        tables.add(table);
     }
 
-
-
-
-
-
-
-
-    
+    public void print() {
+        System.out.println(name);
+        for (Paragraph p: pharagraphs
+             ) {System.out.println(p.name);}
+        for (Image i: images
+        ) {System.out.println(i.imageName);}
+        for (Table t: tables
+        ) {System.out.println(t.name);}
+    }
 }
